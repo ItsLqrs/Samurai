@@ -35,7 +35,7 @@ bot.on("ready", async () => {
 
     console.log(`${bot.user.username} Ready`);
 
-    bot.user.setActivity(":cityscape:Assendelft RP", { type: "WATCHING" });
+    bot.user.setActivity("Assendelft RP", { type: "WATCHING" });
 
 });
 
