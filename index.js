@@ -35,7 +35,7 @@ bot.on("ready", async () => {
 
     console.log(`${bot.user.username} Ready`);
 
-    bot.user.setActivity("#SOON", { type: "WACHTHING" });
+    bot.user.setActivity("#SOON", { type: "PLAYING" });
 
 });
 
