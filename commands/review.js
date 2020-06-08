@@ -42,6 +42,6 @@ module.exports.run = async (bot, message, args) => {
 }
  
 module.exports.help = {
-    name: "review",
+    name: "t",
     description: "review command."
 }
