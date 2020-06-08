@@ -30,6 +30,6 @@ module.exports.run = async (bot, message, args) => {
 }
  
 module.exports.help = {
-    name: "suggestion",
+    name: "suggestie",
     description: "Heb je een idee. Zet het dan hier en misschien passen we het toe."
 }
