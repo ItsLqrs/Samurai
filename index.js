@@ -35,8 +35,9 @@ bot.on("ready", async () => {
 
     console.log(`${bot.user.username} Ready`);
 
-    bot.user.setInterval("🌆Noord-Holland RP", { type: "PLAYING" })
-    bot.user.setInterval("⚡1 server", { type: "WATCHING" })
+    if (option === "Noord-Holland RP") {
+        let type = "WATCHING";
+        }
 
 });
 
