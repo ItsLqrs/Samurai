@@ -59,8 +59,7 @@ bot.on("guildMemberAdd", member => {
 
 
 bot.on("guildMemberRemove", member => {
- 
-    const channel = member.guild.channels.find("name", "welkom-doei");
+    var welkomChannel = bot.channels.get('708224734013161472');
     if (!channel) console.log("Kan het kanaal niet vinden.");
  
     var joinEmbed = new discord.RichEmbed()

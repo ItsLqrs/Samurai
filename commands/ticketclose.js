@@ -3,7 +3,7 @@ const discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
  
     // Id van category van tickets.
-    const categoryId = "719551616042401822";
+    const categoryId = "721659366167543849";
  
     // Als bericht in ticket kanaal is dan verwijder kanaal ander zend bericht
     if (message.channel.parentID == categoryId) {
@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
  
     var embedCloseTicket = new discord.RichEmbed()
         .setTitle("Hoi, " + message.channel.name)
-        .setDescription("Je ticket is gemarkeerd als **compleet**. Wil je een nieuwe maken doe dan !ticket")
+        .setDescription("Je ticket is gemarkeerd als **compleet**. Wil je een nieuwe maken doe dan !new")
         .setFooter("ticket gesloten");
  
     // Vind kanaal voor de logs.
