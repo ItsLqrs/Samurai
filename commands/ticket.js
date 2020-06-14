@@ -42,8 +42,7 @@ module.exports.run = async (bot, message, args) => {
         createdChan.setParent(categoryId).then((settedParent) => { // Zet kanaal in category.
  
             // Zet perms voor iedereen
-            settedParent.overwritePermissions(message.guild.roles.find('name', "@👨🏼Inwoner"), { "READ_MESSAGES": false });
-            settedParent.overwritePermissions(message.guild.roles.find('name', "@everone"), { "READ_MESSAGES": false });
+            settedParent.overwritePermissions(message.guild.roles.find('name', "@everone"), { "READ_MESSAGES": false, "VIEW_CHANNEL": false, "SEND_MESSAGES": false });
             // Zet perms voor de gebruiker die ticket heeft aangemaakt.
             settedParent.overwritePermissions(message.author, {
  
