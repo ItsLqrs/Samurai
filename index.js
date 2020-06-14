@@ -35,8 +35,7 @@ bot.on("ready", async () => {
 
     console.log(`${bot.user.username} Ready`);
 
-    bot.user.setActivity("🌆Noord-Holland RP", { type: "PLAYING" });
-
+    bot.user.setActivity("Noord-Holland RP", { type: "PLAYING" });
 
 });
 
