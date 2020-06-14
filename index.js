@@ -31,15 +31,14 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 
+bot.on("ready", async () => {
+
+    console.log(`${bot.user.username} Ready`);
+
+    bot.user.setInterval("🌆Noord-Holland RP", { type: "WATCHING" })
 
 
-    client.on("ready", function() {
-        setInterval(function() {
-            var actID = Math.floor(Math.random() * Math.floor(activevar.length));
-            client.user.setActivity(activities);
-        }, 10000)
-    });
-
+});
 
 bot.on("guildMemberAdd", member => {
  
