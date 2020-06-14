@@ -35,13 +35,14 @@ bot.on("ready", async () => {
 
     console.log(`${bot.user.username} Ready`);
 
-    bot.user.setActivity("Assendelft RP", { type: "PLAYING" });
+    bot.user.setActivity("🌆Noord-Holland RP", { type: "PLAYING" })
+    bot.user.setActivity("⚡Kijkt naar 1 server", { type: "WATCHING" });
 
 });
 
 bot.on("guildMemberAdd", member => {
  
-    const channel = member.guild.channels.find("name", "welkom-doei");
+    var welkomChannel = bot.channels.get('708224734013161472');
     if (!channel) console.log("Kan het kanaal niet vinden.");
  
     var joinEmbed = new discord.RichEmbed()
