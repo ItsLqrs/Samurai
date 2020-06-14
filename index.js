@@ -36,7 +36,7 @@ bot.on("ready", async () => {
     console.log(`${bot.user.username} Ready`);
 
     bot.user.setActivity("🌆Noord-Holland RP", { type: "PLAYING" });
-    bot.user.setActivity("⚡Kijkt naar 1 server", { type: "WATCHING" });
+    bot.user.setActivity("⚡1 server", { type: "WATCHING" });
 
 });
 
