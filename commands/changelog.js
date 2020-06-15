@@ -44,7 +44,7 @@ module.exports.run = async (bot, message, args) => {
 
     // Het bericht wat wordt verzonden.
     var announcementMessage = new discord.RichEmbed()
-        .setTitle("***changelog:***")
+        .setTitle("***Changelog:***")
         .setColor(options.kleur)
         .setDescription(`${options.bericht} \n`)
         .setTimestamp();
