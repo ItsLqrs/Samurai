@@ -64,6 +64,7 @@ bot.on("guildMemberRemove", member => {
  
     var joinEmbed = new discord.RichEmbed()
         .setAuthor(`${member.user.tag}`, member.user.displayAvatarURL)
+        .setThumbnail (`${bot.user.Icon}`)
         .setColor("#FF0000")
         .setDescription(`***Jammer dat je weg gaat*** ${member.user.username}.`)
         .setTimestamp()
