@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("Idee van:", message.author);
  
     // Vind het kanaal.
-    var suggestionChannel = bot.channels.get('718925542258245694');
+    var suggestionChannel = bot.channels.get('722009930911186945');
     if (!suggestionChannel) return message.channel.send("Kan het kanaal niet vinden");
  
     // Verzend het bericht en voeg er reacties aan toe.
