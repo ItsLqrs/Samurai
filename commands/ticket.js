@@ -1,76 +1,75 @@
-const discord = require("discord.js")
-
-const categoryID = "723490893675626518";
-
+const discord = require("discord.js");
+ 
 module.exports.run = async (bot, message, args) => {
-
+ 
+    // ID van de categorie van de tickets.
+    const categoryId = "721659366167543849";
+ 
+    // Verkrijg Gebruikersnaam
     var userName = message.author.username;
-    var userDiscrimator = message.author.Discrimator;
-
-    var ticketBestaat = false;
-
-    message.guild.channels.cache.forEach(channel => {
-
-        if(channel.name == "🎫-" + userName.toLowerCase() + "-" + userDiscrimator){
-            ticketBestaat = true;
-
-            message.reply("Je hebt al een ticket open staan!");
-
-            return
+    // Verkrijg discriminator
+    var userDiscriminator = message.author.discriminator;
+ 
+    // Als ticket al gemaakt is
+    var bool = false;
+ 
+    // Kijk na als ticket al gemaakt is.
+    message.guild.channels.forEach((channel) => {
+ 
+        // Als ticket is gemaakt, zend bericht.
+        if (channel.name == userName.toLowerCase() + "-" + userDiscriminator) {
+ 
+            message.channel.send("Je hebt al een ticket aangemaakt");
+ 
+            bool = true;
+ 
         }
-        
+ 
     });
-
-    if(ticketBestaat) return;
-
-    var embed = new discord.MessageEmbed()
-    .setTitle("Hallo " + message.author.username)
-    .setThumbnail("https://imgur.com/07nwTET")
-    .setDescription("_**Uw ticket is aangemaakt!**_")
-    .setFooter("Samurai ticket systeem", "https://imgur.com/07nwTET");
-
-    message.channel.send(embed);
-
-    message.guild.channels.create(userName.toLowerCase() + "-" + userDiscrimator, {type: "text"}).then(
-       (createdChannel) => {
-           createdChannel.setParent(categoryID).then(
-               (settedParent) => {
-               
-                settedParent.updateOverwrite(message.guild.roles.cache.find(x => x.name === '@everyone'), {
-                    SEND_MESSAGES: false,
-                    VIEW_CHANNEL: false
-                });
-
-                settedParent.updateOverwrite(message.author, {
-                    CREATE_INSTANT_INVITE: false,
-                    VIEW_CHANNEL: true,
-                    READ_MESSAGES: true,
-                    SEND_MESSAGES: true,
-                    ATTACH_FILES: true,
-                    CONNECT: true,
-                    ADD_REACTIONS: true,
-                    READ_MESSAGES_HISTORY: true
-
-                });
-
-                    var embedParent = new discord.MessageEmbed()
-                    .setTitle(`Hallo ${message.author.username}`)
-                    .setDescription("Welkom bij jou ticket, stel hier je vragen of meld een klacht!")
-                    .setFooter(`Ticket is aangemaakt!`);
-
-                settedParent.send(embedParent);
-
-
-               }
-           ).catch(err =>{
-               message.channel.send("Er is iets fout gegaan (err 1), probeer het opnieuw!,");
-           });
-       }
-    ).catch(err =>{
-        message.channel.send("Er is iets fout gegaan (err 2), probeer het opnieuw!");
-    });  
+ 
+    // Als ticket return code.
+    if (bool == true) return;
+ 
+    var embedCreateTicket = new discord.RichEmbed()
+        .setTitle("Hoi, " + message.author.username)
+        .setThumbnail("https://imgur.com/07nwTET")
+        .setFooter("Support kanaal wordt aangemaakt");
+ 
+    message.channel.send(embedCreateTicket);
+ 
+    // Maak kanaal en zet in juiste categorie.
+    message.guild.createChannel(userName + "!" + userDiscriminator, "text").then((createdChan) => { // Maak kanaal
+ 
+        createdChan.setParent(categoryId).then((settedParent) => { // Zet kanaal in category.
+ 
+            // Zet perms voor iedereen
+            settedParent.overwritePermissions(message.guild.roles.find
+                ('name', "@everone"), { "READ_MESSAGES": false, "VIEW_CHANNEL": false, "SEND_MESSAGES": false })
+            // Zet perms voor de gebruiker die ticket heeft aangemaakt.
+            settedParent.overwritePermissions(message.author, {
+ 
+                "READ_MESSAGES": true, "SEND_MESSAGES": true,
+                "ATTACH_FILES": true, "CONNECT": true,
+                "CREATE_INSTANT_INVITE": false, "ADD_REACTIONS": true
+ 
+            });
+ 
+            var embedParent = new discord.RichEmbed()
+                .setTitle("Hoi, " + message.author.username.toString())
+                .setDescription("Zet hier je vraag/bericht");
+ 
+            settedParent.send(embedParent);
+        }).catch(err => {
+            message.channel.send("Er is iets fout gelopen.");
+        });
+ 
+    }).catch(err => {
+        message.channel.send("Er is iets fout gelopen.");
+    });
+ 
 }
-
+ 
 module.exports.help = {
-  name: "new"
+    name: "new",
+    description: "Maak een ticket aan"
 }
