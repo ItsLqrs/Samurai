@@ -34,7 +34,7 @@ fs.readdir("./commands/" , (err, files) => {
 client.on("ready", async () => {
 
     console.log(`${client.user.username} is online!`)
-    client.user.setActivity(`1 Server`, {type: "WATCHING"})
+    client.user.setActivity(`🔥 1 Server`, {type: "WATCHING"})
 })
 
 client.on("message", async message => {
@@ -76,7 +76,7 @@ if (command === `${prefix}ban`) {
     if (!banUser) return message.reply("Kan de gebruiker niet vinden.");
 
     var embed = new discord.MessageEmbed()
-        .setColor("#ff0000")
+        .setColor("#993366")
         .setThumbnail(banUser.user.displayAvatarURL)
         .setFooter(message.member.displayName, message.author.displayAvatarURL)
         .setTimestamp()
@@ -85,7 +85,7 @@ if (command === `${prefix}ban`) {
         **Redenen: ** ${reason}`);
 
     var embedPrompt = new discord.MessageEmbed()
-        .setColor("GREEN")
+        .setColor("#993366")
         .setAuthor("Gelieve te reageren binnen 30 sec.")
         .setDescription(`Wil je ${banUser} bannen?`);
 
