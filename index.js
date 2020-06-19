@@ -34,7 +34,7 @@ fs.readdir("./commands/" , (err, files) => {
 client.on("ready", async () => {
 
     console.log(`${client.user.username} is online!`)
-    client.user.setActivity(`Community Nederland`, {type: "WATCHING"})
+    client.user.setActivity(`1 Server`, {type: "WATCHING"})
 })
 
 client.on("message", async message => {
