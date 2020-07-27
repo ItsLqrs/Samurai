@@ -14,7 +14,6 @@ module.exports.run = async (bot, message, args) => {
 
         var useMessage = new discord.RichEmbed()
             .setTitle("Gebruik")
-            .setThumbnail("https://imgur.com/zaTwlZZ")
             .setColor("#993366")
             .setDescription(`Maak een announcement door gebruik te maken van: \n !announcement Titel ${splitser} Bericht ${splitser} Kanaal`);
 
