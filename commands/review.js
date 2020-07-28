@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
     // Maak de review aan met het aantal sterren en het berichtje.
     const review = new discord.RichEmbed()
         .setTitle(`${message.author.username} heeft een review geschreven! :tada:`)
-        .setColor("#00ff00")
+        .setColor("#ee9600")
         .addField("Sterren:", `${sterren}`)
         .addField("Review:", `${bericht}`);
  

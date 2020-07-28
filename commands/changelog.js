@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
 
         var useMessage = new discord.RichEmbed()
             .setTitle("Gebruik")
-            .setColor("#00ee00")
+            .setColor("#ee9600")
             .setDescription(`Maak een changelog door gebruik te maken van: \n !changelog Titel ${splitser} Bericht ${splitser} Kleur ${splitser} Kanaal`);
 
         return message.channel.send(useMessage);

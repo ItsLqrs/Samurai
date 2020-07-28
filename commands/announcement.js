@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
 
         var useMessage = new discord.RichEmbed()
             .setTitle("Gebruik")
-            .setColor("#993366")
+            .setColor("#ee9600")
             .setDescription(`Maak een announcement door gebruik te maken van: \n !announcement Titel ${splitser} Bericht ${splitser} Kanaal`);
 
         return message.channel.send(useMessage);
@@ -45,7 +45,7 @@ module.exports.run = async (bot, message, args) => {
     // Het bericht wat wordt verzonden.
     var announcementMessage = new discord.RichEmbed()
         .setTitle("___**Beste Leden van Noord Holland RP**___:")
-        .setColor("#993366")
+        .setColor("#ee9600")
         .setDescription(`${options.bericht} \n`)
         .setTimestamp();
 
