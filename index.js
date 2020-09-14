@@ -35,7 +35,7 @@ bot.on("ready", async () => {
 
     console.log(`${bot.user.username} Ready`);
 
-    bot.user.setActivity("🌆Noord-Holland RP", { type: "WATCHING" });
+    bot.user.setActivity("Discord Promotion Center", { type: "WATCHING" });
 
 });
 
