@@ -41,7 +41,7 @@ bot.on("ready", async () => {
 
 bot.on("guildMemberAdd", member => {
 
-    const channel = member.guild.channels.find("name", "⎾👋⏌welkom-doei");
+    const channel = member.guild.channels.find("name", "⎾👋⏌welkom");
     if (!channel) console.log("Kan het kanaal niet vinden.");	
 
     var joinEmbed = new discord.RichEmbed()
