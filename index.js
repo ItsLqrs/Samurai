@@ -35,13 +35,13 @@ bot.on("ready", async () => {
 
     console.log(`${bot.user.username} Ready`);
 
-    bot.user.setActivity("Discord Promotion Center", { type: "WATCHING" });
+    bot.user.setActivity("Dean zijn dikke reet", { type: "WATCHING" });
 
 });
 
 bot.on("guildMemberAdd", member => {
 
-    const channel = member.guild.channels.find("name", "⎾👋⏌welkom");
+    const channel = member.guild.channels.find("name", "「💬」openbaar");
     if (!channel) console.log("Kan het kanaal niet vinden.");	
 
     var joinEmbed = new discord.RichEmbed()
@@ -56,7 +56,7 @@ bot.on("guildMemberAdd", member => {
 });
 
 bot.on("guildMemberRemove", member => {
-    const channel = member.guild.channels.find("name", "⎾👋⏌welkom-doei");
+    const channel = member.guild.channels.find("name", "「💬」openbaar");
     if (!channel) console.log("Kan het kanaal niet vinden.");
 
     var joinEmbed = new discord.RichEmbed()	
@@ -69,6 +69,40 @@ bot.on("guildMemberRemove", member => {
     channel.send(joinEmbed);
 
 });
+
+
+if (command === `${prefix}kick`) {
+
+
+    var kickUser = message.guild.member(message.mentions.users.first()  || message.guild.members(arguments[0]));
+
+    if(!kickUser) return message.channel.send("Gebruiker is niet gevonden")
+
+    var reason = arguments.join(" ").slice(22);
+
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("sorry jij kan dit niet doen!");
+
+    if(kickUser.hasPermission("MANAGE_MESSAGE")) return message.member.send("Deze gebruiker kan je niet kicken!");
+
+    var kick = new discord.RichEmbed()
+    .setDescription("Kick")
+    .setColor("#ee0000")
+    .addField("Kicked User", kickUser)
+    .addField("Gekickd door", message.author)
+    .adField("Reden", reason);
+
+    var kickChannel = message.guild.channels.find(`name`, "「💭」logs");
+    if (!kickChannel) return message.guild.send("Kan het kanaal niet vinden");
+
+    message.guild.member(kickUser).kick(reason);
+
+    kickChannel.send(kick);
+
+
+    return;
+
+    }
+
 
 
 
