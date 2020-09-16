@@ -74,9 +74,9 @@ bot.on("guildMemberRemove", member => {
 if (command === `${prefix}kick`) {
 
 
-    var kickUser = message.guild.member(message.mentions.users.first()  || message.guild.members(arguments[0]));
+    var kickUser = message.guild.member(message.mentions.users.first()  ||  message.guild.members(arguments[0]));
 
-    if(!kickUser) return message.channel.send("Gebruiker is niet gevonden")
+    if(!kickUser) return message.channel.send("Gebruiker is niet gevonden");
 
     var reason = arguments.join(" ").slice(22);
 
@@ -101,7 +101,7 @@ if (command === `${prefix}kick`) {
 
     return;
 
-    }
+};
 
 
 
